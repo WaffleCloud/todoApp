@@ -1,6 +1,7 @@
 import Listheader from './components/ListHeader'
 import ListItem from './components/ListItem'
 import { useEffect, useState } from 'react';
+import "./index.css";
 
 const App = () => {
   const userEmail = 'Rilo@test.com';
@@ -27,8 +28,8 @@ const App = () => {
 
   return (
     <div className="app">
-      <Listheader listName={"Holiday tick list"}/>
-      {sortedTasks?.map(<ListItem/>)}
+      <Listheader listName={"Holiday tick list"} getData={getData}/>
+      {sortedTasks?.map((task) => <ListItem key={task.id} task={task} getData={getData}/>)}
     </div>
   );
 }
